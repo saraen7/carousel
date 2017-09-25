@@ -74,9 +74,11 @@ $("#your-vote").on("change", function() {
   if($("#image-to-vote-on").hasClass("image1")){
   $("#image-to-vote-on").attr("src",images[1]).addClass("image2").removeClass("image1");
   image1 = value;
-  var imageScore = parseFloat(Math.round(((image1 + image2 + image3 + image4 + image5 + image6 + image7 + image8) / 8) * 100) / 100).toFixed(2);
+  var imageScore = ((parseFloat(image1) + parseFloat(image2) + parseFloat(image3) + parseFloat(image4) + parseFloat(image5) + parseFloat(image6) + parseFloat(image7) + parseFloat(image8)) / 8).toFixed(2);
+  console.log(imageScore);
   alert("value is: " + value + ", image1 is: " +image1 + " and total is " + imageScore); //ALERT
 } else if($("#image-to-vote-on").hasClass("image2")){
+  //$("#image-to-vote-on[value=0]").prop('selected', 'selected');//I don't know why this line and similar do not clear the select drop down. Clearing the select drop down would hypothetically solve issues around 
   $("#image-to-vote-on").attr("src",images[2]).addClass("image3").removeClass("image2");
   image2 = value;
 } else if($("#image-to-vote-on").hasClass("image3")){
@@ -97,7 +99,8 @@ $("#your-vote").on("change", function() {
 } else {
   image8 = value;
   var imageScore = ((parseFloat(image1) + parseFloat(image2) + parseFloat(image3) + parseFloat(image4) + parseFloat(image5) + parseFloat(image6) + parseFloat(image7) + parseFloat(image8)) / 8).toFixed(2);
-  $(".announcement").append("You have reached the end. Total deliciousness score was: " + imageScore);
+  console.log(imageScore);
+  //$(".announcement").text("You have reached the end. Total deliciousness score was: " + imageScore);
   alert("score = " + imageScore);
 }
 });
