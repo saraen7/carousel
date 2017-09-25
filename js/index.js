@@ -44,14 +44,16 @@ var image8 = 0;
     image7 = 0;
   } else {
     image8 = 0;
-    var imageScore = parseFloat(Math.round(((image1 + image2 + image3 + image4 + image5 + image6 + image7 + image8) / 8) * 100) / 100).toFixed(2);
-    $(".announcement").append("You have reached the end. Total deliciousness score was: " + imageScore);
+    var imageScore = ((parseFloat(image1) + parseFloat(image2) + parseFloat(image3) + parseFloat(image4) + parseFloat(image5) + parseFloat(image6) + parseFloat(image7) + parseFloat(image8)) / 8).toFixed(2);
+    console.log(imageScore);
+    $(".announcement").text("You have reached the end. Total deliciousness score was: " + imageScore);
   }
   });
 
   //Clicking on the back button moves to the previous image in queue.
     $("#back").on("click",function(){
       if($("#image-to-vote-on").hasClass("image8")){
+      $(".announcement").text("");
       $("#image-to-vote-on").attr("src",images[6]).addClass("image7").removeClass("image8");
     } else if($("#image-to-vote-on").hasClass("image7")){
       $("#image-to-vote-on").attr("src",images[5]).addClass("image6").removeClass("image7");
@@ -72,36 +74,44 @@ var image8 = 0;
 $("#your-vote").on("change", function() {
   var value = $(this).val();
   if($("#image-to-vote-on").hasClass("image1")){
-  $("#image-to-vote-on").attr("src",images[1]).addClass("image2").removeClass("image1");
   image1 = value;
+  $("#your-vote > option").prop("selected",false); //Leon's addition! - clears the previous vote on image change
+  $("#image-to-vote-on").attr("src",images[1]).addClass("image2").removeClass("image1");
   var imageScore = ((parseFloat(image1) + parseFloat(image2) + parseFloat(image3) + parseFloat(image4) + parseFloat(image5) + parseFloat(image6) + parseFloat(image7) + parseFloat(image8)) / 8).toFixed(2);
   console.log(imageScore);
-  alert("value is: " + value + ", image1 is: " +image1 + " and total is " + imageScore); //ALERT
+  //alert("value is: " + value + ", image1 is: " +image1 + " and total is " + imageScore); //ALERT
+  $(".points0").attr("select","selected")
 } else if($("#image-to-vote-on").hasClass("image2")){
-  //$("#image-to-vote-on[value=0]").prop('selected', 'selected');//I don't know why this line and similar do not clear the select drop down. Clearing the select drop down would hypothetically solve issues around 
-  $("#image-to-vote-on").attr("src",images[2]).addClass("image3").removeClass("image2");
   image2 = value;
+  $("#your-vote > option").prop("selected",false); //Leon's addition! - clears the previous vote on image change
+  $("#image-to-vote-on").attr("src",images[2]).addClass("image3").removeClass("image2");
 } else if($("#image-to-vote-on").hasClass("image3")){
-  $("#image-to-vote-on").attr("src",images[3]).addClass("image4").removeClass("image3");
   image3 = value;
+  $("#your-vote > option").prop("selected",false); //Leon's addition! - clears the previous vote on image change
+  $("#image-to-vote-on").attr("src",images[3]).addClass("image4").removeClass("image3");
 } else if($("#image-to-vote-on").hasClass("image4")){
-  $("#image-to-vote-on").attr("src",images[4]).addClass("image5").removeClass("image4");
   image4 = value;
+  $("#your-vote > option").prop("selected",false); //Leon's addition! - clears the previous vote on image change
+  $("#image-to-vote-on").attr("src",images[4]).addClass("image5").removeClass("image4");
 } else if($("#image-to-vote-on").hasClass("image5")){
-  $("#image-to-vote-on").attr("src",images[5]).addClass("image6").removeClass("image5");
   image5 = value;
+  $("#your-vote > option").prop("selected",false); //Leon's addition! - clears the previous vote on image change
+  $("#image-to-vote-on").attr("src",images[5]).addClass("image6").removeClass("image5");
 } else if($("#image-to-vote-on").hasClass("image6")){
-  $("#image-to-vote-on").attr("src",images[6]).addClass("image7").removeClass("image6");
   image6 = value;
+  $("#your-vote > option").prop("selected",false); //Leon's addition! - clears the previous vote on image change
+  $("#image-to-vote-on").attr("src",images[6]).addClass("image7").removeClass("image6");
 } else if($("#image-to-vote-on").hasClass("image7")){
-  $("#image-to-vote-on").attr("src",images[7]).addClass("image8").removeClass("image7");
   image7 = value;
+  $("#your-vote > option").prop("selected",false); //Leon's addition! - clears the previous vote on image change
+  $("#image-to-vote-on").attr("src",images[7]).addClass("image8").removeClass("image7");
 } else {
   image8 = value;
+  $("#your-vote > option").prop("selected",false); //Leon's addition! - clears the previous vote on image change
   var imageScore = ((parseFloat(image1) + parseFloat(image2) + parseFloat(image3) + parseFloat(image4) + parseFloat(image5) + parseFloat(image6) + parseFloat(image7) + parseFloat(image8)) / 8).toFixed(2);
   console.log(imageScore);
-  //$(".announcement").text("You have reached the end. Total deliciousness score was: " + imageScore);
-  alert("score = " + imageScore);
+  $(".announcement").text("You have reached the end. Total deliciousness score was: " + imageScore);
+  //alert("score = " + imageScore);
 }
 });
 
