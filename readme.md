@@ -1,21 +1,20 @@
 # Image Carousel
 This was my first attempt at an image carousel. It was one of the homework assignments from General Assembly.
 
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+**Link to project:** https://saraen7.github.io/carousel/index.html
 
-![alt tag](url) OR ![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+![Alt text](/images/screenshot.JPG?raw=true "Screenshot")
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Framework of choice
+**Tech used:** HTML, CSS, JavaScript, jQuery
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write *something*.
+I used a series of IF/ELSE statements in the JS to add and remove classes to show multiple images.
 
 ## Optimizations
-*(optional)*
 
-Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets?
+As this was my first image carousel, I was very happy to get it to work. There is certainly some refactoring that can be done to make the JS more streamlined. An example of a more efficient image carousel of mine can be found on my travel blog: https://github.com/saraen7/travelBlog.
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments!
+I did the extra portion of this assignment to include image scoring as well and really learned the importance of debugging throughout the process.
